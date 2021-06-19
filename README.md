@@ -1,115 +1,46 @@
-# Base Development Envrionment with React
+# Getting Started with Create React App
 
-After updating `babel.config.js` to use [JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html),
-functional components no longer need to import `react` with
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-```js script
-import React from "react";
-```
+## Available Scripts
 
-If run into issues, if not mentioned here, check out the `Issues`
-section on the `main` branch.
+In the project directory, you can run:
 
-## Frontend Only
+### `yarn start`
 
-```sh
-git clone --branch react-ts --single-branch --depth 1 git@github.com:justin0979/devconfig.git
-```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-#### Running Tests
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-Testing only uses jest. Enzyme was removed due to a lack of an official adapter-17.
+### `yarn test`
 
-If needing to use:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-```javascript
-jest.spyOn(global, "fetch").mockImplementation(() =>
-  Promise.resolve({
-    json: () => Promise.resolve(stuff),
-  }),
-);
-```
+### `yarn build`
 
-use this instead:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-```javascript
-global.fetch = jest.fn().mockImplementation(() =>
-  Promise.resolve({
-    json: () => Promise.resolve(stuff),
-  }),
-);
-```
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-then, remove the mock:
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```javascript
-global.fetch.mockRestore();
-delete global.fetch();
-```
+### `yarn eject`
 
-#### Absolute Path
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-For use of absolute paths like:
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-```javascript
-import newFile from "&newdirname/newFile";
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-update the following (assuming <code>newdirname/</code> is in <code>src/</code>):
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-<ul>
-  <li>Update <code>babel.config.js</code>:
-  
- ```sh
- module.exports = {
-plugins: [
-           "module-resolver", {
-              root: ["./"],
-               alias: {
-                 "&newdirname": "./src/newdirname"
-               }
-             }
-         ]
- }
- ```
- 
-  </li>
-  <li>
- Update <code>tsconfig.json</code>:
- 
-```sh
-{
-     "compilerOptions": {
-      "paths": {
-        "&newdirname/*": ["./src/newdirname/*"]
-     }
-    }
-}
-```
- 
-To import <code>index.ts</code> like:
+## Learn More
 
-```javascript
-import * from "&newdirname";
-```
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-change <code>tsconfig.json</code>:
-
-```sh
-{
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "&newdirname": ["src/newdirname"],
-      "&newdirname/*": ["src/newdirname/*"]
-    }
-  }
-}
-```
-
-   </li>
-  </ul>
-</ul>
-
-The `tsconfig.json` comes from:
-[TypeScript: Documentation Path mapping](https://www.javascript.org/docs/handbook/module-resolution.html#path-mapping)
+To learn React, check out the [React documentation](https://reactjs.org/).
