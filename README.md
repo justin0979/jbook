@@ -1,115 +1,63 @@
-# Base Development Envrionment with React
+# jbook project from Udemy course
 
-After updating `babel.config.js` to use [JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html),
-functional components no longer need to import `react` with
+Project will mimick code.io with accepting user code and
+outputting processed code by using esbuild to process the
+code in the browser.
 
-```js script
-import React from "react";
-```
+<details>
+  <summary>Issues</summary>
 
-If run into issues, if not mentioned here, check out the `Issues`
-section on the `main` branch.
-
-## Frontend Only
+Solved issue with my dev-configuration to add `esbuild.wasm`
+file to `dist` directory by running:
 
 ```sh
-git clone --branch react-ts --single-branch --depth 1 git@github.com:justin0979/devconfig.git
+npm i -D copy-webpack-plugin
 ```
 
-#### Running Tests
-
-Testing only uses jest. Enzyme was removed due to a lack of an official adapter-17.
-
-If needing to use:
+In `config/webpack.common.js` add:
 
 ```javascript
-jest.spyOn(global, "fetch").mockImplementation(() =>
-  Promise.resolve({
-    json: () => Promise.resolve(stuff),
-  }),
-);
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
+module.exports = {
+  // ...,
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "public", // copies all public dir contents to dist dir
+        },
+      ],
+    }),
+  ],
+};
 ```
 
-use this instead:
+---
 
-```javascript
-global.fetch = jest.fn().mockImplementation(() =>
-  Promise.resolve({
-    json: () => Promise.resolve(stuff),
-  }),
-);
-```
-
-then, remove the mock:
-
-```javascript
-global.fetch.mockRestore();
-delete global.fetch();
-```
-
-#### Absolute Path
-
-For use of absolute paths like:
-
-```javascript
-import newFile from "&newdirname/newFile";
-```
-
-update the following (assuming <code>newdirname/</code> is in <code>src/</code>):
-
-<ul>
-  <li>Update <code>babel.config.js</code>:
-  
- ```sh
- module.exports = {
-plugins: [
-           "module-resolver", {
-              root: ["./"],
-               alias: {
-                 "&newdirname": "./src/newdirname"
-               }
-             }
-         ]
- }
- ```
- 
-  </li>
-  <li>
- Update <code>tsconfig.json</code>:
- 
-```sh
-{
-     "compilerOptions": {
-      "paths": {
-        "&newdirname/*": ["./src/newdirname/*"]
-     }
-    }
-}
-```
- 
-To import <code>index.ts</code> like:
-
-```javascript
-import * from "&newdirname";
-```
-
-change <code>tsconfig.json</code>:
+Solved issue with saving changes and browser showing error:
 
 ```sh
-{
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "&newdirname": ["src/newdirname"],
-      "&newdirname/*": ["src/newdirname/*"]
-    }
-  }
-}
+GET http://localhost:3000/favicon.ico  [HTTP/1.1 404 Not Found 0ms]
 ```
 
-   </li>
-  </ul>
-</ul>
+In `config/webpack.common.js` add:
 
-The `tsconfig.json` comes from:
-[TypeScript: Documentation Path mapping](https://www.javascript.org/docs/handbook/module-resolution.html#path-mapping)
+```javascript
+module.exports = {
+  // ...,
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "public/esbuild.wasm",
+        },
+      ],
+    }),
+  ],
+};
+```
+
+---
+
+</details>
