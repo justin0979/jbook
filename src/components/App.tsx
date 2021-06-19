@@ -8,8 +8,8 @@ interface Content {
 }
 
 const componentContent: Content = {
-  h1: "With Typescript",
-  text: "This works",
+  h1: "With T",
+  text: "This works just as good",
   reference:
     "https://medium.com/@dahvinchee/how-to-set-up-a-react-typescript-project-from-scratch-with-babel-and-webpack-6b069881229d",
   refDesc:
