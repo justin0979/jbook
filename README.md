@@ -10,8 +10,11 @@ Development environment will from my
 <details>
   <summary>Issues</summary>
 
+<details>
+<summary>
 Solved issue with my dev-configuration to add `esbuild.wasm`
 file to `dist` directory by running:
+</summary>
 
 ```sh
 npm i -D copy-webpack-plugin
@@ -36,9 +39,13 @@ module.exports = {
 };
 ```
 
+</details>
+
 ---
 
-Solved issue with saving changes and browser showing error:
+<details>
+
+<summary>Solved issue with saving changes and browser showing error:</summary>
 
 ```sh
 GET http://localhost:3000/favicon.ico  [HTTP/1.1 404 Not Found 0ms]
@@ -60,6 +67,8 @@ module.exports = {
   ],
 };
 ```
+
+</details>
 
 ---
 
