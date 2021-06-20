@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-//const CopyWebpackPlugin = require("copy-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   resolve: {
@@ -42,9 +42,9 @@ module.exports = {
         type: "asset",
         parser: {
           dataUrlCondition: {
-            maxSize: 3 * 1024 // 3 kBs
-          }
-        }
+            maxSize: 3 * 1024, // 3 kBs
+          },
+        },
       },
     ],
   },
@@ -57,12 +57,12 @@ module.exports = {
       },
     }),
     new CleanWebpackPlugin(),
-    //    new CopyWebpackPlugin({
-    //      patterns: [
-    //        {
-    //          from: "public",
-    //        },
-    //      ],
-    //    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "public/esbuild.wasm",
+        },
+      ],
+    }),
   ],
 };
