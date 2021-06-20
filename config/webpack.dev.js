@@ -7,7 +7,7 @@ module.exports = merge(commonConfig, {
   entry: ["./src/index", "./public/index.html"],
   output: {
     path: path.resolve(__dirname, "../dist"),
-    publicPath: "",
+    publicPath: "auto",
   },
   mode: "development",
   devtool: "inline-source-map",

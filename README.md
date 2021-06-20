@@ -12,31 +12,19 @@ Development environment will from my
 
 <details>
 <summary>
-Solved issue with my dev-configuration to add `esbuild.wasm`
-file to `dist` directory by running:
+Solved issue with adding `esbuild.wasm`
+file to `dist` directory:
+
+`ERROR in Conflict: Multiple assets emit different content to the same filename index.html`
+
 </summary>
 
-```sh
-npm i -D copy-webpack-plugin
-```
-
-In `config/webpack.common.js` add:
+In `webpack.dev.js`:
 
 ```javascript
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-
-module.exports = {
-  // ...,
-  plugins: [
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: "public", // copies all public dir contents to dist dir
-        },
-      ],
-    }),
-  ],
-};
+output: {
+  publicPath: "auto";
+}
 ```
 
 </details>
