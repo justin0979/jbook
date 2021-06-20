@@ -1,10 +1,12 @@
 # JBook project from Udemy course
 
-Project will mimick code.io with accepting user code and
+This in-progress project will mimick code.io with accepting user code and
 outputting code by using esbuild to process the code in
 the browser.
 
-# 2 Main Development Branches
+## 2 Main Development Branches
+
+Each branch has its own README to address any encountered issues.
 
 `cra` uses create-react-app.
 
