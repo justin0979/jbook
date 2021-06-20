@@ -4,6 +4,9 @@ Project will mimick code.io with accepting user code and
 outputting processed code by using esbuild to process the
 code in the browser.
 
+Development environment will from my
+[devconfig](https://github.com/justin0979/devconfig) repo.
+
 <details>
   <summary>Issues</summary>
 
