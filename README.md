@@ -1,4 +1,4 @@
-# jbook project from Udemy course
+# JBook project from Udemy course
 
 Project will mimick code.io with accepting user code and
 outputting processed code by using esbuild to process the
