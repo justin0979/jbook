@@ -27,11 +27,11 @@ const App: React.FC = () => {
       target: "es2015",
     });
 
-    console.log(result);
+    setCode(result.code);
   };
 
   return (
-    <div className="app" data-test="appComponent">
+    <div>
       <textarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
