@@ -30,6 +30,7 @@ module.exports = {
         alias: {
           "&components": "./src/components",
           "&images": "./src/images",
+          "&plugins": "./src/plugins",
           "&sass": "./src/sass",
           "&src": "./src",
           __tests__: "./__tests__",
