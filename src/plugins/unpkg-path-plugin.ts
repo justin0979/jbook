@@ -34,14 +34,15 @@ export const unpkgPathPlugin = () => {
           return {
             loader: "jsx",
             contents: `
-                    const react = require("react")
-                    const reactDOM = reaquire("react-dom")
-                    console.log(react, reactDOM);
-                  `,
+              const react = require ("react");
+              const reactDOM = require("react-dom");
+              console.log(react, reactDOM);
+            `,
           };
         }
 
         const { data, request } = await axios.get(args.path);
+        console.log(request);
         return {
           loader: "jsx",
           contents: data,
