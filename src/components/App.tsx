@@ -42,6 +42,8 @@ const App: React.FC = () => {
   return (
     <div>
       <textarea
+        rows="10"
+        cols="40"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       ></textarea>
