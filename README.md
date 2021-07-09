@@ -12,6 +12,9 @@ Development environment will from my
 
 <details>
 <summary>
+2 ways to solve:
+</summary>
+<summary>
 Solved issue with my dev-configuration to add `esbuild.wasm`
 file to `dist` directory by running:
 </summary>
@@ -36,6 +39,20 @@ module.exports = {
       ],
     }),
   ],
+};
+```
+
+<summary>
+Another solution is to set `wasmURL` in `esbuild.startService` to use `unpkg`
+</summary>
+
+```javascript
+const startService = async () => {
+  const service = await esbuild.startService({
+    worker: true,
+    wasmURL:
+      "https://unpkg.com/esbuild-wasm@0.8.27/esbuild.wasm",
+  });
 };
 ```
 
