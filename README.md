@@ -12,8 +12,12 @@ Development environment will from my
 
 <details>
 <summary>
-Solved issue with adding `esbuild.wasm`
-file to `dist` directory:
+2 ways to solve (2nd solution is best, 1st is for following lecture):
+</summary>
+<summary>
+Solved issue with my dev-configuration to add `esbuild.wasm`
+file to `dist` directory by running:
+</summary>
 
 `ERROR in Conflict: Multiple assets emit different content to the same filename index.html`
 
@@ -26,6 +30,22 @@ output: {
   publicPath: "auto";
 }
 ```
+
+<summary>
+Another solution is to set `wasmURL` in `esbuild.startService` to use `unpkg`
+</summary>
+
+```javascript
+const startService = async () => {
+  const service = await esbuild.startService({
+    worker: true,
+    wasmURL:
+      "https://unpkg.com/esbuild-wasm@0.8.27/esbuild.wasm",
+  });
+};
+```
+
+Now, `esbuild.wasm` does not need to be added to `public/`.
 
 </details>
 

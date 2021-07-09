@@ -56,5 +56,12 @@ module.exports = {
       },
     }),
     new CleanWebpackPlugin(),
+    //    new CopyWebpackPlugin({
+    //      patterns: [
+    //        {
+    //          from: "public/esbuild.wasm",
+    //        },
+    //      ],
+    //    }),
   ],
 };
