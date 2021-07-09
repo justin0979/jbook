@@ -56,7 +56,7 @@ const startService = async () => {
 };
 ```
 
-Now, `esbuild.wams` does not need to be added to `public/`.
+Now, `esbuild.wasm` does not need to be added to `public/`.
 
 </details>
 
