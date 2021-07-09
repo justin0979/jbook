@@ -12,7 +12,7 @@ Development environment will from my
 
 <details>
 <summary>
-2 ways to solve (2nd solution is best, 1st is for following lecture):
+2 ways to solve (2nd solution is best):
 </summary>
 <summary>
 Solved issue with my dev-configuration to add `esbuild.wasm`
