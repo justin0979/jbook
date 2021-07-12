@@ -20,6 +20,8 @@ export const fetchPlugin = (inputCode: string) => {
         },
       );
 
+      // Check for cached packages, used to remove code
+      // duplication
       build.onLoad({ filter: /.*/ }, async (args: any) => {
         //  Check to see if we have already fetched this file
         //  and if it is in the cache
