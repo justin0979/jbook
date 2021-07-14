@@ -39,13 +39,15 @@ const App: React.FC = () => {
     // console.log(result);
 
     setCode(result.outputFiles[0].text);
+
+    eval(result.outputFiles[0].text);
   };
 
   return (
     <div>
       <textarea
-        rows="10"
-        cols="40"
+        rows={10}
+        cols={40}
         value={input}
         onChange={(e) => setInput(e.target.value)}
       ></textarea>
