@@ -2,6 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { merge } = require("webpack-merge");
 const commonConfig = require("./webpack.common");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = merge(commonConfig, {
   entry: ["./src/index", "./public/index.html"],
@@ -48,6 +49,15 @@ module.exports = merge(commonConfig, {
   plugins: [
     new MiniCssExtractPlugin({
       filename: "styles.css",
+    }),
+
+    new HtmlWebpackPlugin({
+      filename: "test.html",
+      template: "./public/test.html",
+      favicon: "./public/favicon-32x32.png",
+      meta: {
+        viewport: "width=device-width, initial-scale=1",
+      },
     }),
   ],
 });
