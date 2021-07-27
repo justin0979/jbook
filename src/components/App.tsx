@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import * as esbuild from "esbuild-wasm";
 import { unpkgPathPlugin } from "&plugins/unpkg-path-plugin";
 import { fetchPlugin } from "&plugins/fetch-plugin";
+import CodeEditor from "./code-editor";
 
 const App: React.FC = () => {
   const [input, setInput] = useState("");
@@ -68,6 +69,7 @@ const App: React.FC = () => {
 
   return (
     <div>
+      <CodeEditor />
       <textarea
         rows={10}
         cols={40}
