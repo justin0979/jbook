@@ -28,6 +28,7 @@
       {
         "root": ["./"],
         "alias": {
+          "&bundler": "./src/bundler",
           "&components": "./src/components",
           "&images": "./src/images",
           "&plugins": "./src/plugins",
