@@ -24,7 +24,8 @@
     "localforage": "^1.9.0",
     "prettier": "^2.3.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-resizable": "^3.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -37,6 +38,7 @@
     "@types/jest": "^26.0.23",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
+    "@types/react-resizable": "^1.7.3",
     "@types/webpack-env": "^1.16.0",
     "@webpack-cli/serve": "^1.5.1",
     "autoprefixer": "^10.2.6",
