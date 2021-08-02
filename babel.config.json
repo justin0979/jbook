@@ -31,7 +31,7 @@
           "&bundler": "./src/bundler",
           "&components": "./src/components",
           "&images": "./src/images",
-          "&plugins": "./src/plugins",
+          "&plugins": "./src/bundler/plugins",
           "&sass": "./src/sass",
           "&src": "./src",
           "__tests__": "./__tests__"

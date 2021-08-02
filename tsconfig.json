@@ -53,7 +53,7 @@
       "&bundler": ["./src/bundler"],
       "&bundler/*": ["./src/bundler/*"],
       "&components/*": ["./src/components/*"],
-      "&plugins/*": ["./src/plugins/*"],
+      "&plugins/*": ["./src/bundler/plugins/*"],
       "&src": ["./src"],
       "&src/*": ["./src/*"],
       "__tests__/*": ["./__tests__/*"]
