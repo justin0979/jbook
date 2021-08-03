@@ -2,15 +2,20 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { merge } = require("webpack-merge");
 const commonConfig = require("./webpack.common");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = merge(commonConfig, {
-  entry: ["./src/index", "./public/index.html"],
+  entry: [
+    "./src/index",
+    "./public/index.html",
+    "./src/sass/main.scss",
+  ],
   output: {
     path: path.resolve(__dirname, "../dist"),
-    publicPath: "",
+    publicPath: "auto",
   },
   mode: "development",
-  devtool: "inline-source-map",
+  devtool: "eval-source-map",
   devServer: {
     port: 3000,
     host: "0.0.0.0", // add for docker
@@ -29,7 +34,17 @@ module.exports = merge(commonConfig, {
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
-          "postcss-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                config: path.resolve(
+                  __dirname,
+                  "postcss.config.js",
+                ),
+              },
+            },
+          },
           "sass-loader",
         ],
       },
@@ -39,5 +54,14 @@ module.exports = merge(commonConfig, {
     new MiniCssExtractPlugin({
       filename: "styles.css",
     }),
+
+    //    new HtmlWebpackPlugin({
+    //      filename: "test.html",
+    //      template: "./public/test.html",
+    //      favicon: "./public/favicon-32x32.png",
+    //      meta: {
+    //        viewport: "width=device-width, initial-scale=1",
+    //      },
+    //    }),
   ],
 });

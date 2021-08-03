@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-//const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   resolve: {
@@ -42,14 +41,15 @@ module.exports = {
         type: "asset",
         parser: {
           dataUrlCondition: {
-            maxSize: 3 * 1024 // 3 kBs
-          }
-        }
+            maxSize: 3 * 1024, // 3 kBs
+          },
+        },
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
+      filename: "index.html",
       template: "./public/index.html",
       favicon: "./public/favicon-32x32.png",
       meta: {
@@ -60,7 +60,7 @@ module.exports = {
     //    new CopyWebpackPlugin({
     //      patterns: [
     //        {
-    //          from: "public",
+    //          from: "public/esbuild.wasm",
     //        },
     //      ],
     //    }),
