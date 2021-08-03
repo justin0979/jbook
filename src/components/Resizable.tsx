@@ -1,5 +1,5 @@
+import "./resizable.css";
 import { ResizableBox } from "react-resizable";
-import "&sass/resizable.scss";
 
 interface ResizableProps {
   direction: "horizontal" | "vertical";
