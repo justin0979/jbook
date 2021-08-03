@@ -22,10 +22,12 @@ export const CodeCell: React.FC = () => {
           flexDirection: "row",
         }}
       >
-        <CodeEditor
-          initialValue="const b = 'hi'"
-          onChange={(value) => setInput(value)}
-        />
+        <Resizable direction="horizontal">
+          <CodeEditor
+            initialValue="const b = 'hi'"
+            onChange={(value) => setInput(value)}
+          />
+        </Resizable>
         <Preview code={code} />
       </div>
     </Resizable>
