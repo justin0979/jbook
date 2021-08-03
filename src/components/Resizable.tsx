@@ -1,4 +1,4 @@
-import "./resizable.css";
+import "&sass/resizable.scss";
 import { ResizableBox } from "react-resizable";
 
 interface ResizableProps {
