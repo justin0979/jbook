@@ -5,11 +5,7 @@ const commonConfig = require("./webpack.common");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = merge(commonConfig, {
-  entry: [
-    "./src/index",
-    "./public/index.html",
-    "./src/sass/main.scss",
-  ],
+  entry: ["./src/index", "./public/index.html"],
   output: {
     path: path.resolve(__dirname, "../dist"),
     publicPath: "auto",

@@ -1,4 +1,13 @@
-import ReactDOM from "react-dom";
-import App from "&components/App";
+import 'bulmaswatch/superhero/bulmaswatch.min.css';
+import ReactDOM from 'react-dom';
+import CodeCell from './components/code-cell';
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+const App = () => {
+  return (
+    <div>
+      <CodeCell />
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.querySelector('#root'));
