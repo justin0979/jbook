@@ -14,15 +14,18 @@ export const CodeCell: React.FC = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "row",
+      }}
+    >
       <Resizable direction="vertical">
         <CodeEditor
           initialValue="const b = 'hi'"
           onChange={(value) => setInput(value)}
         />
-        <div>
-          <button onClick={onClick}>Submit</button>
-        </div>
         <Preview code={code} />
       </Resizable>
     </div>
