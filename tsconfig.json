@@ -54,6 +54,7 @@
       "&bundler/*": ["./src/bundler/*"],
       "&components/*": ["./src/components/*"],
       "&plugins/*": ["./src/bundler/plugins/*"],
+      "&sass/*": ["./src/sass/*"],
       "&src": ["./src"],
       "&src/*": ["./src/*"],
       "__tests__/*": ["./__tests__/*"]
