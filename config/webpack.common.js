@@ -1,9 +1,15 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   resolve: {
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: "./tsconfig.json",
+      }),
+    ],
     modules: [path.resolve(__dirname, "src"), "node_modules"],
     extensions: [
       ".js",
@@ -28,9 +34,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(tsx?|jsx?)$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: "babel-loader",
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: "ts-loader",
       },
       {
         test: /\.html$/,
