@@ -6,12 +6,14 @@ import { Resizable } from "&components/Resizable";
 
 export const CodeCell: React.FC = () => {
   const [input, setInput] = useState("");
+  const [err, setErr] = useState("");
   const [code, setCode] = useState("");
 
   useEffect(() => {
     const timerId = setTimeout(async () => {
       const output = await bundle(input);
-      setCode(output);
+      setCode(output.code);
+      setErr(output.err);
     }, 1000);
 
     return () => {
