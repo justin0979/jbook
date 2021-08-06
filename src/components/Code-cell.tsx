@@ -30,7 +30,7 @@ export const CodeCell: React.FC = () => {
       >
         <Resizable direction="horizontal">
           <CodeEditor
-            initialValue="const b = 'hi'"
+            initialValue="let b = 'hi'"
             onChange={(value) => setInput(value)}
           />
         </Resizable>

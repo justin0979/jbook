@@ -1,13 +1,14 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   resolve: {
     plugins: [
       new TsconfigPathsPlugin({
-        configFile: "./tsconfig.json",
+        configFile: "tsconfig.json",
       }),
     ],
     modules: [path.resolve(__dirname, "src"), "node_modules"],
@@ -41,7 +42,12 @@ module.exports = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: "ts-loader",
+        use: {
+          loader: "ts-loader",
+          options: {
+            transpileOnly: true,
+          },
+        },
       },
       {
         test: /\.html$/,
@@ -68,6 +74,17 @@ module.exports = {
       },
     }),
     new CleanWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: "./src/**/*.{ts,tsx,js,jsx}",
+      },
+      typescript: {
+        diagnosticOptions: {
+          semantic: true,
+          syntactic: true,
+        },
+      },
+    }),
     //    new CopyWebpackPlugin({
     //      patterns: [
     //        {
