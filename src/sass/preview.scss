@@ -1,13 +1,22 @@
-.preview-wrapper {
-  position: relative;
-  height: 100%;
-  flex-grow: 1;
-  overflow: hidden;
-
-  & iframe {
+.preview {
+  &-wrapper {
+    position: relative;
     height: 100%;
-    background-color: white;
-    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+
+    & iframe {
+      height: 100%;
+      background-color: white;
+      width: 100%;
+    }
+  }
+
+  &-error {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #f00;
   }
 }
 
