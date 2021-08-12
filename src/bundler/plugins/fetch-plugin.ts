@@ -10,15 +10,12 @@ export const fetchPlugin = (inputCode: string) => {
   return {
     name: "fetch-plugin",
     setup(build: esbuild.PluginBuild) {
-      build.onLoad(
-        { filter: /(^index\.js$)/ },
-        (args: any) => {
-          return {
-            loader: "jsx",
-            contents: inputCode,
-          };
-        },
-      );
+      build.onLoad({ filter: /(^index\.js$)/ }, () => {
+        return {
+          loader: "jsx",
+          contents: inputCode,
+        };
+      });
 
       // Check for cached packages, used to remove code
       // duplication

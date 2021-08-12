@@ -20,8 +20,9 @@
   }
 }
 
-.react-draggable-transparent-selection .preview-wrapper:after {
-  content: "";
+.react-draggable-transparent-selection
+  .preview-wrapper::after {
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;

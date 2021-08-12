@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import {
   ResizableBox,
   ResizableBoxProps,
-} from "react-resizable";
+} from 'react-resizable';
 
 interface ResizableProps {
-  direction: "horizontal" | "vertical";
+  direction: 'horizontal' | 'vertical';
 }
 
 export const Resizable: React.FC<ResizableProps> = ({
@@ -36,18 +36,18 @@ export const Resizable: React.FC<ResizableProps> = ({
       }, 100);
     };
 
-    window.addEventListener("resize", listener);
+    window.addEventListener('resize', listener);
 
     return () =>
-      window.removeEventListener("resize", listener);
+      window.removeEventListener('resize', listener);
   }, [width]);
 
-  if (direction === "horizontal") {
+  if (direction === 'horizontal') {
     resizableProps = {
-      className: "resize-horizontal",
+      className: 'resize-horizontal',
       width,
       height: Infinity,
-      resizeHandles: ["e"],
+      resizeHandles: ['e'],
       maxConstraints: [innerWidth * 0.75, Infinity],
       minConstraints: [innerWidth * 0.2, Infinity],
       onResizeStop: (event, data) => {
@@ -58,7 +58,7 @@ export const Resizable: React.FC<ResizableProps> = ({
     resizableProps = {
       width: Infinity,
       height: 300,
-      resizeHandles: ["s"],
+      resizeHandles: ['s'],
       maxConstraints: [Infinity, innerHeight * 0.9],
       minConstraints: [Infinity, innerHeight * 0.1],
     };
