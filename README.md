@@ -1,7 +1,7 @@
 # JBook project from Udemy course
 
 This in-progress project will mimick code.io with accepting user code and outputting
- code by using esbuild to process the code in the browser.
+code by using esbuild to process the code in the browser.
 
 <<<<<<< HEAD
 Code found in `main` branch will contain either of the below branch data.
@@ -38,7 +38,7 @@ In `webpack.dev.js`:
 
 ```javascript
 output: {
-  publicPath: "auto";
+  publicPath: 'auto';
 }
 ```
 
@@ -51,7 +51,7 @@ const startService = async () => {
   const service = await esbuild.startService({
     worker: true,
     wasmURL:
-      "https://unpkg.com/esbuild-wasm@0.8.27/esbuild.wasm",
+      'https://unpkg.com/esbuild-wasm@0.8.27/esbuild.wasm',
   });
 };
 ```
@@ -79,7 +79,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: "public/esbuild.wasm",
+          from: 'public/esbuild.wasm',
         },
       ],
     }),
