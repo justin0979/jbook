@@ -1,4 +1,6 @@
-import { ActionType, Action, Cell } from '&state';
+import { Cell } from '&state';
+import { ActionType } from '&state/action-types';
+import { Action } from '&state/actions';
 
 interface CellsState {
   loading: boolean;
