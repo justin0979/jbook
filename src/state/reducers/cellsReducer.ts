@@ -32,7 +32,7 @@ const reducer = (
           ...state.data,
           [id]: {
             ...state.data[id],
-            content: content,
+            content,
           },
         },
       };
