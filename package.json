@@ -23,6 +23,7 @@
     "bulmaswatch": "^0.8.1",
     "core-js": "^3.14.0",
     "esbuild-wasm": "0.8.27",
+    "immer": "^9.0.5",
     "localforage": "^1.9.0",
     "prettier": "^2.3.2",
     "react": "^17.0.2",
