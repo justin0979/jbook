@@ -8,7 +8,7 @@ interface ResizableProps {
   direction: 'horizontal' | 'vertical';
 }
 
-export const Resizable: React.FC<ResizableProps> = ({
+const Resizable: React.FC<ResizableProps> = ({
   direction,
   children,
 }) => {
@@ -38,8 +38,7 @@ export const Resizable: React.FC<ResizableProps> = ({
 
     window.addEventListener('resize', listener);
 
-    return () =>
-      window.removeEventListener('resize', listener);
+    return () => window.removeEventListener('resize', listener);
   }, [width]);
 
   if (direction === 'horizontal') {
@@ -68,3 +67,5 @@ export const Resizable: React.FC<ResizableProps> = ({
     <ResizableBox {...resizableProps}>{children}</ResizableBox>
   );
 };
+
+export default Resizable;

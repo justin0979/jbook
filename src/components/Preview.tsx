@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 interface PreviewProps {
   code: string;
@@ -35,16 +35,13 @@ const html = `
       </html>
     `;
 
-export const Preview: React.FC<PreviewProps> = ({
-  code,
-  err,
-}) => {
+const Preview: React.FC<PreviewProps> = ({ code, err }) => {
   const iframe = useRef<any>();
 
   useEffect(() => {
     iframe.current.srcdoc = html;
     setTimeout(() => {
-      iframe.current.contentWindow.postMessage(code, "*");
+      iframe.current.contentWindow.postMessage(code, '*');
     }, 50);
   }, [code]);
 
@@ -60,3 +57,5 @@ export const Preview: React.FC<PreviewProps> = ({
     </div>
   );
 };
+
+export default Preview;

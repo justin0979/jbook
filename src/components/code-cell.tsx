@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import CodeEditor from './code-editor';
-import { Preview } from './Preview';
+import Preview from './Preview';
 import bundle from '&bundler';
-import { Resizable } from '&components/Resizable';
+import Resizable from '&components/Resizable';
 
-export const CodeCell: React.FC = () => {
+const CodeCell: React.FC = () => {
   const [input, setInput] = useState('');
   const [err, setErr] = useState('');
   const [code, setCode] = useState('');
@@ -43,3 +43,5 @@ export const CodeCell: React.FC = () => {
     </Resizable>
   );
 };
+
+export default CodeCell;

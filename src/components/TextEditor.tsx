@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import MDEditor from '@uiw/react-md-editor';
 
-export const TextEditor: React.FC = () => {
+const TextEditor: React.FC = () => {
   const [editing, setEditing] = useState(false);
   const [value, setValue] = useState('# Header');
   const ref = useRef<HTMLDivElement | null>(null);
@@ -51,3 +51,5 @@ export const TextEditor: React.FC = () => {
     </div>
   );
 };
+
+export default TextEditor;
