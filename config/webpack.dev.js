@@ -44,7 +44,7 @@ module.exports = merge(commonConfig, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'styles.css',
+      filename: 'styles.[contenthash].css',
     }),
 
     //    new HtmlWebpackPlugin({
