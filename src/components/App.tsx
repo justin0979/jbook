@@ -1,10 +1,10 @@
 import 'bulmaswatch/superhero/bulmaswatch.min.css';
-import CodeCell from '&components/code-cell';
+import CellList from './cell-list';
 
 const App: React.FC = () => {
   return (
     <div>
-      <CodeCell />
+      <CellList />
     </div>
   );
 };
