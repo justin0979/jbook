@@ -53,6 +53,7 @@
       "&bundler": ["./src/bundler"],
       "&bundler/*": ["./src/bundler/*"],
       "&components/*": ["./src/components/*"],
+      "&hooks": ["./src/hooks"],
       "&plugins/*": ["./src/bundler/plugins/*"],
       "&sass/*": ["./src/sass/*"],
       "&src": ["./src"],
