@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import CodeEditor from './code-editor';
-import Preview from './Preview';
+import Preview from './preview';
 import bundle from '&bundler';
-import Resizable from '&components/Resizable';
+import Resizable from '&components/resizable';
 
 const CodeCell: React.FC = () => {
   const [input, setInput] = useState('');
