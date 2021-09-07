@@ -1,6 +1,7 @@
 import { Cell } from '&state';
 import CodeCell from './code-cell';
 import TextEditor from './text-editor';
+import ActionBar from './action-bar';
 
 interface CellListItemProps {
   cell: Cell;
@@ -16,7 +17,10 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
 
   return (
     <div>
-      <h1>{child}</h1>
+      <h1>
+        <ActionBar id={cell.id} />
+        {child}
+      </h1>
     </div>
   );
 };
