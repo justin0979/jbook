@@ -30,7 +30,7 @@ module.exports = merge(commonConfig, {
       {
         test: /\.s?css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -48,18 +48,4 @@ module.exports = merge(commonConfig, {
       },
     ],
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'styles.[contenthash].css',
-    }),
-
-    //    new HtmlWebpackPlugin({
-    //      filename: "test.html",
-    //      template: "./public/test.html",
-    //      favicon: "./public/favicon-32x32.png",
-    //      meta: {
-    //        viewport: "width=device-width, initial-scale=1",
-    //      },
-    //    }),
-  ],
 });
