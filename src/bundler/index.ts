@@ -30,8 +30,11 @@ const bundle = async (rawCode: string) => {
       err: '',
     };
   } catch (err) {
-    if (err instanceof SyntaxError)
-      return { code: '', err: err.message };
+    let result = (err as SyntaxError).message;
+    return {
+      code: '',
+      err: result,
+    };
   }
 };
 
