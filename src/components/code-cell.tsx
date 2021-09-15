@@ -22,7 +22,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
         setCode(output.code);
         setErr(output.err);
       }
-    }, 1000);
+    }, 750);
 
     return () => {
       clearTimeout(timerId);
