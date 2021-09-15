@@ -6,8 +6,6 @@ import {
   UpdateCellAction,
   DeleteCellAction,
   InsertCellAfterAction,
-  BundleStartAction,
-  BundleCompleteAction,
   Direction,
 } from '&state/actions';
 import { CellTypes } from '&state/cell';
