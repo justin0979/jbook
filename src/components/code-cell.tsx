@@ -19,7 +19,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     const orderedCells = order.map((id) => data[id]);
 
     const cumulativeCode = [];
-    for (let c of orderedCells) {
+    for (const c of orderedCells) {
       if (c.type === 'code') {
         cumulativeCode.push(c.content);
       }
@@ -33,18 +33,18 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
 
   useEffect(() => {
     if (!bundle) {
-      createBundle(cell.id, cell.content);
+      createBundle(cell.id, cumulativeCode.join('\n'));
       return;
     }
 
     const timerId = setTimeout(async () => {
-      createBundle(cell.id, cell.content);
+      createBundle(cell.id, cumulativeCode.join('\n'));
     }, 750);
 
     return () => {
       clearTimeout(timerId);
     };
-  }, [cell.content, cell.id, createBundle]);
+  }, [cumulativeCode.join('\n'), cell.id, createBundle]);
 
   return (
     <Resizable direction="vertical">
