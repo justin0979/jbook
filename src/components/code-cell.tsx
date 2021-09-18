@@ -3,7 +3,11 @@ import CodeEditor from './code-editor';
 import Preview from './preview';
 import Resizable from '&components/resizable';
 import { Cell } from '&state';
-import { useActions, useTypedSelector } from '&hooks';
+import {
+  useActions,
+  useTypedSelector,
+  useCumulativeCode,
+} from '&hooks';
 
 interface CodeCellProps {
   cell: Cell;
@@ -14,63 +18,22 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const bundle = useTypedSelector(
     (state) => state.bundles[cell.id],
   );
-
-  const cumulativeCode = useTypedSelector((state) => {
-    const { data, order } = state.cells;
-    const orderedCells = order.map((id) => data[id]);
-
-    const showFunc = `
-      import _React from "react";
-      import _ReactDOM from "react-dom";
-
-      var show = (value) => {
-        const root = document.querySelector('#root');
-
-        if (typeof value === 'object') {
-          if (value.$$typeof && value.props) {
-            _ReactDOM.render(value, root);
-          } else {
-            root.innerHTML = JSON.stringify(value);
-          }
-        } else {
-          root.innerHTML = value;
-        }
-      };
-    `;
-    const showFuncNoop = 'var show = () => {}';
-    const cumulativeCode = [];
-
-    for (const c of orderedCells) {
-      if (c.type === 'code') {
-        if (c.id === cell.id) {
-          cumulativeCode.push(showFunc);
-        } else {
-          cumulativeCode.push(showFuncNoop);
-        }
-        cumulativeCode.push(c.content);
-      }
-      if (c.id === cell.id) {
-        break;
-      }
-    }
-
-    return cumulativeCode;
-  });
+  const cumulativeCode = useCumulativeCode(cell.id);
 
   useEffect(() => {
     if (!bundle) {
-      createBundle(cell.id, cumulativeCode.join('\n'));
+      createBundle(cell.id, cumulativeCode);
       return;
     }
 
     const timerId = setTimeout(async () => {
-      createBundle(cell.id, cumulativeCode.join('\n'));
+      createBundle(cell.id, cumulativeCode);
     }, 750);
 
     return () => {
       clearTimeout(timerId);
     };
-  }, [cumulativeCode.join('\n'), cell.id, createBundle]);
+  }, [cumulativeCode, cell.id, createBundle]);
 
   return (
     <Resizable direction="vertical">
